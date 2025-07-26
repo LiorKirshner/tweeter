@@ -1,0 +1,20 @@
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# VSCode settings
+.vscode/
+
+# Jest coverage
+coverage/
+
+# System files
+.DS_Store
+
+# Env files
+.env
+
+# Cache
+.cache/

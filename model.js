@@ -1,4 +1,4 @@
-const Tweeter = () => {
+const Tweeter = (() => {
   let _posts = [
     {
       text: "First post!",
@@ -32,10 +32,27 @@ const Tweeter = () => {
   function addPost(text) {
     postIdCounter++;
     //adds a new post object to posts
-    const newPost = { text, id: `c${postIdCounter}`, comments: [] };
+    const newPost = { text, id: `p${postIdCounter}`, comments: [] };
     _posts.push(newPost);
   }
+
   function removePost(postID) {
     _posts = _posts.filter((p) => p.id !== postID);
   }
-};
+
+  function addComment(postID, text) {
+    const rightPost = _posts.find((p) => p.id === postID);
+    if (rightPost) {
+      commentIdCounter++;
+      rightPost.comments.push({ id: `c${commentIdCounter}`, text: text });
+    }
+  }
+  return {
+    getPosts,
+    addPost,
+    removePost,
+    addComment,
+  };
+})();
+
+module.exports = Tweeter;
