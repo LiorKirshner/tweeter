@@ -32,7 +32,10 @@ const Tweeter = () => {
   function addPost(text) {
     postIdCounter++;
     //adds a new post object to posts
-    const newPost = {text,id:`c${postIdCounter}`, comments = []};
+    const newPost = { text, id: `c${postIdCounter}`, comments: [] };
     _posts.push(newPost);
+  }
+  function removePost(postID) {
+    _posts = _posts.filter((p) => p.id !== postID);
   }
 };
