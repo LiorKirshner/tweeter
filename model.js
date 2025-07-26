@@ -1,4 +1,4 @@
-function Tweeter() {
+const Tweeter = function () {
   let _posts = [
     {
       text: "First post!",
@@ -61,6 +61,6 @@ function Tweeter() {
     addComment,
     removeComment,
   };
-}
+};
 
 export default Tweeter;
