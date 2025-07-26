@@ -1,4 +1,4 @@
-const Tweeter = require("../model.js");
+import Tweeter from "./model.js";
 
 describe("Tweeter Module", () => {
   test("should return all posts", () => {
@@ -19,5 +19,14 @@ describe("Tweeter Module", () => {
     Tweeter.addComment(post.id, "New comment!");
     const newComments = post.comments.length;
     expect(newComments).toBe(prevComments + 1);
+  });
+  test("removing non-existing post should not change posts array", () => {
+    const prevPosts = Tweeter.getPosts();
+    const prevLength = prevPosts.length;
+
+    Tweeter.removePost("nonexistent-post-id");
+
+    const newPosts = Tweeter.getPosts();
+    expect(newPosts.length).toBe(prevLength);
   });
 });

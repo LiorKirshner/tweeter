@@ -1,4 +1,4 @@
-const Tweeter = (() => {
+function Tweeter() {
   let _posts = [
     {
       text: "First post!",
@@ -47,12 +47,20 @@ const Tweeter = (() => {
       rightPost.comments.push({ id: `c${commentIdCounter}`, text: text });
     }
   }
+  function removeComment(postID, commentID) {
+    const post = _posts.find((p) => p.id === postID);
+    if (post) {
+      post.comments = post.comments.filter((c) => c.id !== commentID);
+    }
+  }
+
   return {
     getPosts,
     addPost,
     removePost,
     addComment,
+    removeComment,
   };
-})();
+}
 
-module.exports = Tweeter;
+export default Tweeter;
