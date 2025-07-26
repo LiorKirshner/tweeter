@@ -24,4 +24,15 @@ const Tweeter = () => {
   ];
   let postIdCounter = 2; // to count total posts
   let commentIdCounter = 6; //to count total comments
+
+  function getPosts() {
+    return _posts;
+  }
+
+  function addPost(text) {
+    postIdCounter++;
+    //adds a new post object to posts
+    const newPost = {text,id:`c${postIdCounter}`, comments = []};
+    _posts.push(newPost);
+  }
 };
