@@ -6,29 +6,28 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center content horizontally */
+  align-items: stretch; /* Center content horizontally */
   min-height: 100vh; /* Ensure body takes full viewport height */
   color: #14171a; /* Default text color for better readability */
 }
 
 /* Header Styling */
 header {
-  width: 100%; /* Full width header */
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start; /* במקום center */
   align-items: center;
-  background-color: #ffffff; /* White header background for clean look */
-  padding: 15px 0; /* Slightly reduced padding */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
-  margin-bottom: 20px; /* Space below header */
+  background-color: #ffffff;
+  padding: 15px 30px; /* הוספתי padding לשמאל */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
 }
 
 header img {
-  height: 50px; /* More standard logo size */
-  max-width: 100%; /* Ensure image scales on smaller screens */
-  object-fit: contain; /* Keep aspect ratio */
+  height: 150px; /* במקום 50px */
+  max-width: 100%;
+  object-fit: contain;
 }
-
 /* Main Content Area */
 main {
   max-width: 600px; /* Max width for comfortable reading */
