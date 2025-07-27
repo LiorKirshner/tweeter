@@ -24,7 +24,7 @@ document.getElementById("twit-btn").addEventListener("click", () => {
 });
 
 /**
- * Event delegation for dynamic actions inside the posts container.
+ * Event  delegation for dynamic actions inside the posts container.
  * Handles post deletion, comment deletion, and adding comments to specific posts.
  */
 document.getElementById("postsContainer").addEventListener("click", (event) => {
