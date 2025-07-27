@@ -1,52 +1,240 @@
+/* General Body and Base Styling */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  margin: 20px;
+  font-family: "Segoe UI", Arial, sans-serif; /* Modern, clean font */
+  background-color: #f0f2f5; /* Light gray background, soft on the eyes */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
+  min-height: 100vh; /* Ensure body takes full viewport height */
+  color: #14171a; /* Default text color for better readability */
 }
 
+/* Header Styling */
+header {
+  width: 100%; /* Full width header */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff; /* White header background for clean look */
+  padding: 15px 0; /* Slightly reduced padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+  margin-bottom: 20px; /* Space below header */
+}
+
+header img {
+  height: 50px; /* More standard logo size */
+  max-width: 100%; /* Ensure image scales on smaller screens */
+  object-fit: contain; /* Keep aspect ratio */
+}
+
+/* Main Content Area */
+main {
+  max-width: 600px; /* Max width for comfortable reading */
+  width: 100%; /* Take full width up to max-width */
+  margin: 0 auto;
+  padding: 0 15px; /* Add horizontal padding for smaller screens */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Consistent spacing between major sections */
+  box-sizing: border-box; /* Include padding in element's total width */
+}
+
+/* New Post Section */
 #new-post {
-  margin-bottom: 20px;
+  background-color: white;
+  border: 1px solid #e0e0e0; /* Softer border */
+  border-radius: 12px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column; /* Stack elements vertically for better flow */
+  gap: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Soft shadow for depth */
+  width: 100%; /* Ensure it takes full available width */
+  box-sizing: border-box; /* Include padding/border in element's total width */
 }
 
+#input {
+  width: 100%; /* Full width input */
+  padding: 12px; /* More padding for better typing experience */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  resize: vertical; /* Allow vertical resizing (like a textarea) */
+  min-height: 60px; /* Minimum height for the input area */
+  box-sizing: border-box; /* Include padding/border in element's total width */
+}
+
+#input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+#twit-btn {
+  align-self: flex-end; /* Align button to the right */
+  padding: 10px 20px; /* More substantial padding */
+  background-color: #1da1f2; /* Twitter blue */
+  color: white;
+  border: none;
+  border-radius: 20px; /* Pill shape */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease; /* Smooth hover effect */
+}
+
+#twit-btn:hover {
+  background-color: #0d8ddb; /* Darker blue on hover */
+}
+
+/* Posts Container */
 #postsContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px; /* Space between individual posts */
+  width: 100%; /* Ensure it takes full available width */
 }
 
+/* Individual Post Card Styling */
 .post {
-  background-color: #ffffff;
-  border: 1px solid #ccc;
-  padding: 12px;
-  border-radius: 8px;
+  background-color: white;
+  border: 1px solid #e0e0e0; /* Softer border */
+  border-radius: 12px;
+  padding: 15px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Soft shadow */
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column; /* Stack elements inside post */
+  gap: 10px; /* Space between elements inside post */
+  box-sizing: border-box; /* Include padding/border in element's total width */
 }
 
+/* Post Text */
 .post-text {
-  font-weight: bold;
-  margin-bottom: 8px;
+  font-size: 1em;
+  line-height: 1.5;
+  color: #14171a; /* Darker text for readability */
+  margin: 0; /* Remove default paragraph margins */
+  word-wrap: break-word; /* Prevents long words from overflowing */
 }
 
+/* Comments Section */
 .comments {
+  border-top: 1px solid #eee; /* Separator line above comments */
+  padding-top: 10px;
   margin-top: 10px;
-  padding-left: 15px;
-  border-left: 2px solid #ddd;
+  margin-left: 0; /* Override previous left margin */
+  padding-left: 0; /* Override previous left padding */
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Space between individual comments */
 }
 
 .comment {
-  background-color: #f0f0f0;
-  margin: 5px 0;
-  padding: 6px 10px;
-  border-radius: 6px;
+  background-color: #f5f8fa; /* Light blue-gray for comments background */
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  position: relative;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+}
+
+.comment-text {
+  line-height: 1.4;
+  word-wrap: break-word;
+  color: #333; /* Slightly darker text for readability */
+  margin: 0; /* Remove default paragraph margins */
 }
 
 input.comment-input {
   margin-top: 10px;
-  padding: 6px;
-  width: 80%;
+  padding: 10px;
+  width: calc(100% - 20px); /* Adjust width to account for padding */
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9em;
+  box-sizing: border-box; /* Crucial for correct width calculation */
 }
 
-button {
-  margin-left: 6px;
-  padding: 6px 12px;
+button.comment-button {
+  margin-top: 8px;
+  padding: 8px 15px;
+  font-size: 0.85em;
+  border: none;
+  border-radius: 20px;
+  background-color: #1da1f2;
+  color: white;
   cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button.comment-button:hover {
+  background-color: #0d8ddb;
+}
+
+/* Delete Buttons */
+button.delete-post,
+button.delete-comment {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  font-size: 0.75em;
+  background-color: #dc3545; /* Red for delete */
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  line-height: 1; /* Adjust line height for better button text centering */
+}
+
+button.delete-post:hover,
+button.delete-comment:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  header img {
+    height: 40px; /* Smaller logo on very small screens */
+  }
+
+  main {
+    padding: 0 10px; /* More padding on the edges */
+  }
+
+  #new-post {
+    padding: 10px;
+  }
+
+  #input {
+    min-height: 50px;
+  }
+
+  .post {
+    padding: 10px;
+  }
+
+  .post-text {
+    font-size: 0.95em;
+  }
+
+  .comment {
+    padding: 8px;
+    font-size: 0.85em;
+  }
+
+  input.comment-input {
+    padding: 8px;
+    width: calc(100% - 16px);
+  }
+
+  button.delete-post,
+  button.delete-comment {
+    top: 8px;
+    right: 8px;
+    padding: 3px 8px;
+    font-size: 0.7em;
+  }
 }
