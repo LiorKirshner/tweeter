@@ -6,14 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tweeter</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- ✅ הוספה של jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <script type="module" src="main.js"></script>
   </head>
   <body>
-    <div id="app">
-      <h1>Tweeter</h1>
-      <input type="text" id="postInput" placeholder="What's on your mind?" />
-      <button id="postBtn">Post</button>
-      <div id="postsContainer"></div>
+    <div class="post" data-id="p1">
+      <div class="post-text">Post content here</div>
+      <div class="delete" data-id="p1">Delete Post</div>
+      <div class="comments">
+        <div class="comment" data-id="c1">Comment text</div>
+        <div class="delete-comment" data-id="c1">X</div>
+        <!-- More comments... -->
+      </div>
+      <input
+        type="text"
+        placeholder="Got something to say?"
+        class="comment-input"
+      />
+      <button class="comment-button">Comment</button>
     </div>
   </body>
 </html>
