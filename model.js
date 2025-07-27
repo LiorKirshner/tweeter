@@ -22,43 +22,51 @@ const Tweeter = function () {
       ],
     },
   ];
-  let postIdCounter = 2; // to count total posts
-  let commentIdCounter = 6; //to count total comments
+  let postIdCounter = 2;
+  let commentIdCounter = 6;
 
+  // 🟢 Read
   function getPosts() {
     return _posts;
   }
 
+  // 🟡 Create
   function addPost(text) {
     postIdCounter++;
-    //adds a new post object to posts
     const newPost = { text, id: `p${postIdCounter}`, comments: [] };
     _posts.push(newPost);
-  }
-
-  function removePost(postID) {
-    _posts = _posts.filter((p) => p.id !== postID);
+    return newPost;
   }
 
   function addComment(postID, text) {
-    const rightPost = _posts.find((p) => p.id === postID);
-    if (rightPost) {
-      commentIdCounter++;
-      rightPost.comments.push({ id: `c${commentIdCounter}`, text: text });
-    }
+    const post = _posts.find((p) => p.id === postID);
+    if (!post) return null;
+    commentIdCounter++;
+    const comment = { id: `c${commentIdCounter}`, text };
+    post.comments.push(comment);
+    return comment;
   }
+
+  // 🔴 Delete
+  function removePost(postID) {
+    const initialLength = _posts.length;
+    _posts = _posts.filter((p) => p.id !== postID);
+    return _posts.length < initialLength;
+  }
+
   function removeComment(postID, commentID) {
     const post = _posts.find((p) => p.id === postID);
-    if (post) {
-      post.comments = post.comments.filter((c) => c.id !== commentID);
-    }
+    if (!post) return false;
+    const initialLength = post.comments.length;
+    post.comments = post.comments.filter((c) => c.id !== commentID);
+    return post.comments.length < initialLength;
   }
 
   return {
     getPosts,
     addPost,
-    removePost,
     addComment,
+    removePost,
     removeComment,
   };
 };
