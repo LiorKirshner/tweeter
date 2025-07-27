@@ -12,8 +12,8 @@ renderer.renderPosts(tweeter.getPosts());
  * Triggered when the main comment button is clicked.
  * Adds the post to the model and re-renders all posts.
  */
-document.querySelector(".comment-button").addEventListener("click", () => {
-  const input = document.querySelector(".comment-input");
+document.getElementById("twit-btn").addEventListener("click", () => {
+  const input = document.getElementById("input");
   const text = input.value.trim();
   if (text) {
     // Add a new post to the data model
