@@ -39,9 +39,21 @@ function Renderer() {
       commentsDiv.appendChild(commentElement);
     }
 
+    // Create input and button for adding comments
+    const commentInput = document.createElement("input");
+    commentInput.classList.add("comment-input");
+    commentInput.setAttribute("type", "text");
+    commentInput.setAttribute("placeholder", "Write a comment...");
+
+    const commentButton = document.createElement("button");
+    commentButton.classList.add("comment-button");
+    commentButton.textContent = "Comment";
+
     postDiv.appendChild(postText);
     postDiv.appendChild(deletePostBtn);
     postDiv.appendChild(commentsDiv);
+    postDiv.appendChild(commentInput);
+    postDiv.appendChild(commentButton);
 
     return postDiv;
   }
